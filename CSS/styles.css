@@ -149,12 +149,12 @@ line-height:1.5rem;
 .social-icon{
   margin:10px 10px;
 }
+.QR{
+  width: 10%;
+}
 @media(max-width: 1028px){
   #title {
     text-align: center;
-  }
-  .QR{
-  width: 10%;
   }
   .title-image{
     position:static;
