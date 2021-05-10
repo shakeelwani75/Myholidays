@@ -153,6 +153,9 @@ line-height:1.5rem;
   #title {
     text-align: center;
   }
+  .QR{
+  width: 10%;
+  }
   .title-image{
     position:static;
     transform: rotate(0);
