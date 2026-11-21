@@ -45,7 +45,7 @@
               <a class="nav-link" href="weather.html">Destination weather</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#cta">Download</a>
+              <a class="nav-link" href="virtual-tour.html">Virtual trips</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -70,8 +70,6 @@
         <div class="col-lg-6">
           <h1 class="big-heading">HEAVEN ON EARTH</h1>
           <h1 class="big-heading">WELCOME TO LAKES RIVERS DESERT AND MOUNTAINS HOLIDAY</h1>
-          <button type="button" class="btn btn-dark btn-lg download-button"><i class="fab fa-apple"></i> Download</button>
-          <button type="button" class=" btn btn-outline-dark btn-lg download-button"> <i class="fab fa-google-play"></i> Download</button>
         </div>
         <img class="card-img-top" src="images/skardu7.jpg" alt="skardu-image">
 
@@ -88,6 +86,8 @@
       <h2 class="section-heading">Plan Your Holiday</h2>
       <p>Tell us when you want to travel and choose your ideal destination.</p>
 
+      <button class="booking-toggle" id="booking-toggle" type="button" aria-expanded="false" aria-controls="booking-content">Open booking form</button>
+      <div id="booking-content" hidden>
       <form class="booking-form" id="booking-form">
         <div class="booking-grid">
           <label>
@@ -106,10 +106,19 @@
             Destination
             <select name="destination" required>
               <option value="" selected disabled>Choose a destination</option>
-              <option>Skardu</option>
-              <option>Gilgit</option>
-              <option>Hunza</option>
-              <option>Swat</option>
+              <option value="skardu">Skardu</option>
+              <option value="gilgit">Gilgit</option>
+              <option value="hunza">Hunza</option>
+              <option value="swat">Swat</option>
+            </select>
+          </label>
+          <label>
+            Package
+            <select name="package" required>
+              <option value="" selected disabled>Choose a package</option>
+              <option value="virtual">Virtual Trip - Free</option>
+              <option value="one-week">One Week Trip - £1,000 per person</option>
+              <option value="two-weeks">Two Week Trip - £1,500 per person</option>
             </select>
           </label>
           <label>
@@ -148,11 +157,12 @@
         </div>
         <label class="booking-terms">
           <input type="checkbox" name="deposit-terms" required>
-          <span>A deposit must be paid by the due date provided. The remaining balance is due once your program is confirmed. If you cancel after confirmation, your deposit is non-refundable. Payment is not processed on this page.</span>
+          <span>For paid trips, a deposit must be paid by the due date provided. The remaining balance is due once your program is confirmed. If you cancel after confirmation, your deposit is non-refundable. Payment is not processed on this page.</span>
         </label>
         <button class="btn btn-lg btn-dark booking-submit" type="submit">Request Booking</button>
         <p class="booking-success" id="booking-success" role="status" aria-live="polite"></p>
       </form>
+      </div>
     </div>
   </section>
 
@@ -253,8 +263,8 @@
     <section class="white-section" id="pricing">
        <img class="QR"src="images/ScanForPay.png" alt="QR-image">
 
-      <h2 class="section-heading">A Plan for Everyone Needs</h2>
-      <p>Simple and affordable price plans for yo and your family.</p>
+      <h2 class="section-heading">Choose Your Trip</h2>
+      <p class="pricing-intro">Compare our options and choose the experience that fits your plans.</p>
 
       <div class="row">
 
@@ -264,12 +274,20 @@
               <h3>Virtual Trip</h3>
             </div>
             <div class="card-body">
-
-              <h2>Free</h2>
-              <p>5 Matches Per Day</p>
-              <p>10 Messages Per Day</p>
-              <p>Unlimited App Usage</p>
-              <button class="brn btn-lg btn-block btn-outline-dark" type="button">Sign Up</button>
+              <h2 class="price-text">Free</h2>
+              <ul class="pricing-features">
+                <li>Explore destinations online</li>
+                <li>Get ideas before you travel</li>
+                <li>No travel booking required</li>
+              </ul>
+              <p class="virtual-trip-details">Browse sample photo galleries and routes for:</p>
+              <nav class="virtual-tour-destinations" aria-label="Virtual trip destinations">
+                <a href="virtual-tour.html?destination=skardu">Skardu</a>
+                <a href="virtual-tour.html?destination=gilgit">Gilgit</a>
+                <a href="virtual-tour.html?destination=hunza">Hunza</a>
+                <a href="virtual-tour.html?destination=swat">Swat</a>
+              </nav>
+              <a class="btn btn-lg btn-block btn-dark price-booking-link" href="#booking" data-package="virtual">Choose Virtual Trip</a>
             </div>
           </div>
         </div>
@@ -281,11 +299,13 @@
             </div>
 
             <div class="card-body">
-              <h2 class="price-text">£1000/ p/p</h2>
-              <p>Free Food</p>
-              <p>Free Rafting</p>
-              <p>Free Bonire </p>
-              <button class=" btn btn-lg btn-block btn-dark" type="button">Sign Up</button>
+              <h2 class="price-text">£1,000 <small>per person · 7 days</small></h2>
+              <ul class="pricing-features">
+                <li>Food included</li>
+                <li>Rafting included</li>
+                <li>Bonfire included</li>
+              </ul>
+              <a class="btn btn-lg btn-block btn-dark price-booking-link" href="#booking" data-package="one-week">Choose One Week</a>
 
             </div>
           </div>
@@ -296,17 +316,19 @@
               <h3>Two weeks Trip</h3>
             </div>
             <div class="card-body">
-              <h2 class="price-text">£1500/ P/P</h2>
-              <p>Jeep Safari</p>
-              <p>Five Star Hotels</p>
-              <p>Free Skating</p>
-              <p>Free Fishing</p>
-              <p>Free membership</p>
-              <button class=" btn btn-lg btn-block btn-dark" type="button">Sign Up</button>
+              <h2 class="price-text">£1,500 <small>per person · 14 days</small></h2>
+              <ul class="pricing-features">
+                <li>Jeep safari</li>
+                <li>Five-star hotels</li>
+                <li>Skating and fishing</li>
+              </ul>
+              <a class="btn btn-lg btn-block btn-dark price-booking-link" href="#booking" data-package="two-weeks">Choose Two Weeks</a>
             </div>
 
           </div>
         </div>
+      </div>
+      <p class="pricing-disclaimer">Prices are per person. Confirm availability, itinerary, inclusions, and final cost when booking. For paid trips, the deposit is due by the date provided; the remaining balance is due once your program is confirmed. Deposits are non-refundable if you cancel after confirmation.</p>
     </section>
 
 
@@ -317,8 +339,8 @@
 
 
         <h3 class="big-heading">Find The Best place for your dream Holidays.</h3>
-        <button class="download-button btn btn-lg btn-dark" type="button"><a class="cta" href="https://tripadvisor.co.uk/Tourism-g3576448-Gilgit_Baltistan-Vacations.html" target="_blank"><i class="fab fa-apple"></i> visit</button></a>
-        <button class="download-button btn btn-lg btn-outline-dark" type="button"><a class="cta" href="https://youtube.com/watch?v=F8cYhngAZfI" target="_blank"> <i class="fab fa-google-play"></i> watch</button>
+        <a class="download-button btn btn-lg btn-dark cta" href="https://tripadvisor.co.uk/Tourism-g3576448-Gilgit_Baltistan-Vacations.html" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Visit</a>
+        <a class="download-button btn btn-lg btn-outline-dark cta" href="https://youtube.com/watch?v=F8cYhngAZfI" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> Watch</a>
       </div>
     </section>
 
@@ -350,15 +372,95 @@
       var success = document.getElementById("booking-success");
       var dateInput = form.elements["start-date"];
       var paymentMethod = form.elements["payment-method"];
+      var packageSelect = form.elements["package"];
+      var tripLength = form.elements["trip-length"];
+      var bookingContent = document.getElementById("booking-content");
+      var bookingToggle = document.getElementById("booking-toggle");
+      var paymentMethodField = paymentMethod.closest("label");
+      var termsField = form.querySelector(".booking-terms");
+      var termsCheckbox = form.elements["deposit-terms"];
+      var destinationSelect = form.elements["destination"];
+      var packageDurations = {
+        "one-week": "4-7",
+        "two-weeks": "8-14"
+      };
+
+      function updatePackageFields() {
+        var isVirtualTrip = packageSelect.value === "virtual";
+        var packageDuration = packageDurations[packageSelect.value];
+        if (isVirtualTrip) {
+          dateInput.value = "";
+          tripLength.value = "";
+          paymentMethod.value = "";
+        } else if (packageDuration) {
+          tripLength.value = packageDuration;
+        }
+        dateInput.disabled = isVirtualTrip;
+        dateInput.required = !isVirtualTrip;
+        tripLength.disabled = isVirtualTrip || Boolean(packageDuration);
+        tripLength.required = !isVirtualTrip;
+        paymentMethodField.hidden = isVirtualTrip;
+        paymentMethod.disabled = isVirtualTrip;
+        paymentMethod.required = !isVirtualTrip;
+        termsField.hidden = isVirtualTrip;
+        termsCheckbox.disabled = isVirtualTrip;
+        termsCheckbox.required = !isVirtualTrip;
+      }
+
+      function setBookingOpen(isOpen) {
+        bookingContent.hidden = !isOpen;
+        bookingToggle.setAttribute("aria-expanded", String(isOpen));
+        bookingToggle.textContent = isOpen ? "Hide booking form" : "Open booking form";
+      }
 
       dateInput.min = new Date().toISOString().split("T")[0];
 
+      bookingToggle.addEventListener("click", function () {
+        setBookingOpen(bookingContent.hidden);
+      });
+      document.querySelectorAll('a[href="#booking"]').forEach(function (link) {
+        link.addEventListener("click", function () {
+          setBookingOpen(true);
+        });
+      });
+
+      var query = new URLSearchParams(window.location.search);
+      if (Array.from(destinationSelect.options).some(function (option) {
+        return option.value === query.get("destination");
+      })) {
+        destinationSelect.value = query.get("destination");
+      }
+      if (Array.from(packageSelect.options).some(function (option) {
+        return option.value === query.get("package");
+      })) {
+        packageSelect.value = query.get("package");
+      }
+
+      packageSelect.addEventListener("change", updatePackageFields);
+      document.querySelectorAll(".price-booking-link").forEach(function (link) {
+        link.addEventListener("click", function () {
+          packageSelect.value = link.dataset.package;
+          updatePackageFields();
+          if (window.location.hash === "#booking") {
+            setBookingOpen(true);
+          }
+        });
+      });
+
+      updatePackageFields();
+
       form.addEventListener("submit", function (event) {
         event.preventDefault();
-        success.textContent = "Thank you! Your request is ready. We’ll follow up about your selected payment method: "
-          + paymentMethod.options[paymentMethod.selectedIndex].text + ".";
+        var selectedPackage = packageSelect.options[packageSelect.selectedIndex].text;
+        var confirmation = "Thank you! Your request for " + selectedPackage + " is ready.";
+        if (paymentMethod.value) {
+          confirmation += " We’ll follow up about your selected payment method: "
+            + paymentMethod.options[paymentMethod.selectedIndex].text + ".";
+        }
+        success.textContent = confirmation;
         form.reset();
         dateInput.min = new Date().toISOString().split("T")[0];
+        updatePackageFields();
       });
     }());
   </script>

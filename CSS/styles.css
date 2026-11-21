@@ -203,10 +203,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #pricing .card {
+  width: 100%;
+  height: 100%;
   border: 1px solid var(--border);
   border-radius: 1rem;
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
   overflow: hidden;
+}
+
+#pricing .card-body {
+  display: flex;
+  flex-direction: column;
 }
 
 #pricing .card-header {
@@ -216,12 +223,92 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .price-text {
-  font-size: 1.25rem;
-  line-height: 1.5rem;
+  font-size: 1.75rem;
+  line-height: 1.3;
   color: var(--primary-dark);
 }
 
+.price-text small {
+  display: block;
+  margin-top: 0.4rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.pricing-features {
+  flex: 1;
+  margin: 1rem 0 1.5rem;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.pricing-features li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.pricing-features li:last-child {
+  border-bottom: 0;
+}
+
+.price-booking-link {
+  margin-top: auto;
+  white-space: normal;
+}
+
+.virtual-trip-details {
+  margin: 0 0 0.75rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.virtual-tour-destinations {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.virtual-tour-destinations a {
+  padding: 0.4rem 0.7rem;
+  border: 1px solid #bae6fd;
+  border-radius: 999px;
+  color: var(--primary-dark);
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+
+.virtual-tour-destinations a:hover,
+.virtual-tour-destinations a:focus {
+  border-color: #38bdf8;
+  background: #f0f9ff;
+}
+
+.pricing-intro,
+.pricing-disclaimer {
+  max-width: 900px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.pricing-disclaimer {
+  margin-top: 2rem;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid #38bdf8;
+  border-radius: 0.5rem;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
 .pricing-colum {
+  display: flex;
   padding: 3%;
 }
 
@@ -229,6 +316,30 @@ h1, h2, h3, h4, h5, h6 {
 .booking-section {
   max-width: 1100px;
   margin: 0 auto;
+}
+
+.booking-toggle {
+  display: inline-block;
+  margin: 0.75rem auto 1rem;
+  padding: 0.8rem 1.4rem;
+  border: 1px solid var(--primary-dark);
+  border-radius: 0.75rem;
+  background: var(--primary-dark);
+  color: var(--surface);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.booking-toggle:hover,
+.booking-toggle:focus {
+  border-color: var(--primary);
+  background: var(--primary);
+}
+
+.booking-toggle:focus-visible {
+  outline: 3px solid #bae6fd;
+  outline-offset: 3px;
 }
 
 .booking-form {
