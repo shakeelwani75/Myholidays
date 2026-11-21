@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destination Weather | Make Your Holidays</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/styles.css">
+  <link rel="stylesheet" href="CSS/weather.css">
+</head>
+
+<body class="weather-page">
+  <header class="colored-section weather-header">
+    <nav class="weather-nav" aria-label="Main navigation">
+      <a class="navbar-brand" href="index.html">Make Your Holidays</a>
+      <a class="weather-nav-link" href="index.html">Back to home</a>
+    </nav>
+  </header>
+
+  <main class="weather-main">
+    <section class="weather-panel" aria-labelledby="weather-heading">
+      <p class="weather-eyebrow">Plan your trip with confidence</p>
+      <h1 class="section-heading" id="weather-heading">Destination Weather</h1>
+      <p class="weather-intro">Check current conditions across popular destinations in northern Pakistan.</p>
+
+      <form class="weather-search" id="weather-form">
+        <label for="destination-select">Choose a destination</label>
+        <div class="weather-controls">
+          <select id="destination-select" name="destination">
+            <option value="skardu">Skardu</option>
+            <option value="gilgit">Gilgit</option>
+            <option value="hunza">Hunza (Karimabad)</option>
+            <option value="swat">Swat (Mingora)</option>
+          </select>
+          <button class="btn btn-dark" type="submit">Get weather</button>
+        </div>
+      </form>
+
+      <p class="weather-status" id="weather-status" role="status" aria-live="polite">Loading current weather...</p>
+
+      <section class="weather-report" id="weather-report" aria-live="polite" hidden>
+        <div class="weather-current">
+          <div>
+            <h2 id="report-destination"></h2>
+            <p class="weather-condition" id="report-condition"></p>
+          </div>
+          <p class="weather-temperature"><span id="report-temperature"></span><span id="report-temperature-unit"></span></p>
+        </div>
+        <p class="weather-time">Updated <time id="report-time"></time></p>
+        <div class="weather-details">
+          <div class="weather-detail">
+            <span>Feels like</span>
+            <strong><span id="report-feels-like"></span><span id="report-temperature-unit-secondary"></span></strong>
+          </div>
+          <div class="weather-detail">
+            <span>Humidity</span>
+            <strong><span id="report-humidity"></span><span id="report-humidity-unit"></span></strong>
+          </div>
+          <div class="weather-detail">
+            <span>Precipitation</span>
+            <strong><span id="report-precipitation"></span><span id="report-precipitation-unit"></span></strong>
+          </div>
+          <div class="weather-detail">
+            <span>Wind</span>
+            <strong><span id="report-wind"></span> <span id="report-wind-unit"></span></strong>
+          </div>
+        </div>
+      </section>
+      <p class="weather-attribution">Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>.</p>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      var destinations = {
+        skardu: { name: "Skardu", latitude: 35.2971, longitude: 75.6333 },
+        gilgit: { name: "Gilgit", latitude: 35.9208, longitude: 74.3144 },
+        hunza: { name: "Hunza (Karimabad)", latitude: 36.3167, longitude: 74.65 },
+        swat: { name: "Swat (Mingora)", latitude: 34.7717, longitude: 72.36 }
+      };
+      var descriptions = {
+        0: "Clear sky",
+        1: "Mainly clear",
+        2: "Partly cloudy",
+        3: "Overcast",
+        45: "Fog",
+        48: "Depositing rime fog",
+        51: "Light drizzle",
+        53: "Moderate drizzle",
+        55: "Dense drizzle",
+        56: "Light freezing drizzle",
+        57: "Dense freezing drizzle",
+        61: "Slight rain",
+        63: "Moderate rain",
+        65: "Heavy rain",
+        66: "Light freezing rain",
+        67: "Heavy freezing rain",
+        71: "Slight snowfall",
+        73: "Moderate snowfall",
+        75: "Heavy snowfall",
+        77: "Snow grains",
+        80: "Slight rain showers",
+        81: "Moderate rain showers",
+        82: "Violent rain showers",
+        85: "Slight snow showers",
+        86: "Heavy snow showers",
+        95: "Thunderstorm",
+        96: "Thunderstorm with slight hail",
+        99: "Thunderstorm with heavy hail"
+      };
+      var form = document.getElementById("weather-form");
+      var select = document.getElementById("destination-select");
+      var status = document.getElementById("weather-status");
+      var report = document.getElementById("weather-report");
+      var requestNumber = 0;
+
+      function showWeather(destination, data) {
+        var current = data.current;
+        var units = data.current_units;
+
+        document.getElementById("report-destination").textContent = destination.name;
+        document.getElementById("report-condition").textContent = descriptions[current.weather_code] || "Conditions unavailable";
+        document.getElementById("report-temperature").textContent = Math.round(current.temperature_2m);
+        document.getElementById("report-temperature-unit").textContent = units.temperature_2m;
+        document.getElementById("report-feels-like").textContent = Math.round(current.apparent_temperature);
+        document.getElementById("report-temperature-unit-secondary").textContent = units.apparent_temperature;
+        document.getElementById("report-humidity").textContent = current.relative_humidity_2m;
+        document.getElementById("report-humidity-unit").textContent = units.relative_humidity_2m;
+        document.getElementById("report-precipitation").textContent = current.precipitation;
+        document.getElementById("report-precipitation-unit").textContent = " " + units.precipitation;
+        document.getElementById("report-wind").textContent = Math.round(current.wind_speed_10m);
+        document.getElementById("report-wind-unit").textContent = units.wind_speed_10m;
+        document.getElementById("report-time").textContent = current.time.replace("T", " ") + " (" + data.timezone_abbreviation + ")";
+        document.getElementById("report-time").dateTime = current.time;
+
+        report.hidden = false;
+        status.textContent = "";
+      }
+
+      function loadWeather() {
+        var destination = destinations[select.value];
+        var currentRequest = ++requestNumber;
+        var url = "https://api.open-meteo.com/v1/forecast?latitude=" + destination.latitude
+          + "&longitude=" + destination.longitude
+          + "&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m"
+          + "&timezone=auto";
+
+        report.hidden = true;
+        status.textContent = "Loading current weather for " + destination.name + "...";
+
+        fetch(url)
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error("Weather service returned " + response.status);
+            }
+            return response.json();
+          })
+          .then(function (data) {
+            if (currentRequest === requestNumber) {
+              showWeather(destination, data);
+            }
+          })
+          .catch(function () {
+            if (currentRequest === requestNumber) {
+              status.textContent = "Weather is temporarily unavailable. Check your connection and try again.";
+            }
+          });
+      }
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        loadWeather();
+      });
+
+      loadWeather();
+    }());
+  </script>
+</body>
+
+</html>
