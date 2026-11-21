@@ -202,7 +202,17 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--surface-alt);
 }
 
+#pricing .pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
 #pricing .card {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
   border: 1px solid var(--border);
@@ -213,6 +223,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #pricing .card-body {
   display: flex;
+  flex: 1;
   flex-direction: column;
 }
 
@@ -309,7 +320,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .pricing-colum {
   display: flex;
-  padding: 3%;
+  min-width: 0;
+  padding: 0;
 }
 
 /* Booking */
@@ -491,7 +503,17 @@ h1, h2, h3, h4, h5, h6 {
     padding: 60px 20px;
   }
 
+  #pricing .pricing-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .press-logo {
     width: 18%;
+  }
+
+  @media (max-width: 700px) {
+    #pricing .pricing-grid {
+      grid-template-columns: 1fr;
+    }
   }
 }
