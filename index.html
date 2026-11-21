@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="“viewport”" content="“width=device-width," initial-scale="1.0”">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Make Your Holidays</title>
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -39,6 +39,9 @@
               <a class="nav-link" href="#pricing">Pricing</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="#booking">Book a trip</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="#cta">Download</a>
             </li>
             <li class="nav-item dropdown">
@@ -71,6 +74,64 @@
 
         </div>
       </div>
+    </div>
+  </section>
+
+
+  <!-- Booking -->
+
+  <section class="white-section" id="booking">
+    <div class="container-fluid booking-section">
+      <h2 class="section-heading">Plan Your Holiday</h2>
+      <p>Tell us when you want to travel and choose your ideal destination.</p>
+
+      <form class="booking-form" id="booking-form">
+        <div class="booking-grid">
+          <label>
+            Full name
+            <input type="text" name="name" placeholder="Your name" required>
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" placeholder="you@example.com" required>
+          </label>
+          <label>
+            Destination
+            <select name="destination" required>
+              <option value="" selected disabled>Choose a destination</option>
+              <option>Skardu</option>
+              <option>Gilgit</option>
+              <option>Hunza</option>
+              <option>Swat</option>
+            </select>
+          </label>
+          <label>
+            Travelers
+            <select name="travelers" required>
+              <option value="1">1 traveler</option>
+              <option value="2" selected>2 travelers</option>
+              <option value="3">3 travelers</option>
+              <option value="4">4 travelers</option>
+              <option value="5+">5+ travelers</option>
+            </select>
+          </label>
+          <label>
+            Start date
+            <input type="date" name="start-date" required>
+          </label>
+          <label>
+            Trip length
+            <select name="trip-length" required>
+              <option value="1-3">1-3 days</option>
+              <option value="4-7" selected>4-7 days</option>
+              <option value="8-14">8-14 days</option>
+              <option value="15+">15+ days</option>
+            </select>
+          </label>
+        </div>
+        <button class="btn btn-lg btn-dark booking-submit" type="submit">Request Booking</button>
+        <p class="booking-success" id="booking-success" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 
@@ -137,7 +198,7 @@
             <img class="testimonial-image" src="images/skardu7.jpg" alt="skardu-7">
             <em>Suraj Khan, London</em>
           </div>
-          
+
             <div class="carousel-item container-fluid ">
             <h2 class="testimonial-text">This is not a dream, this is not imagination or this is not a animation what i say this is real You can feel it you can see it. Just you think about to go there. Click to Make My Holidays.</h2>
             <img class="testimonial-image" src="images/skardu8.jpg" alt="skardu-8">
@@ -262,6 +323,22 @@
       </div>
     </footer>
 
+  <script>
+    (function () {
+      var form = document.getElementById("booking-form");
+      var success = document.getElementById("booking-success");
+      var dateInput = form.elements["start-date"];
+
+      dateInput.min = new Date().toISOString().split("T")[0];
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        success.textContent = "Thank you! Your trip request has been received.";
+        form.reset();
+        dateInput.min = new Date().toISOString().split("T")[0];
+      });
+    }());
+  </script>
 
 </body>
 
