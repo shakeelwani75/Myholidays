@@ -42,6 +42,9 @@
               <a class="nav-link" href="#booking">Book a trip</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="weather.html">Destination weather</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="#cta">Download</a>
             </li>
             <li class="nav-item dropdown">
@@ -96,6 +99,10 @@
             <input type="email" name="email" placeholder="you@example.com" required>
           </label>
           <label>
+            Phone number
+            <input type="tel" name="phone" autocomplete="tel" placeholder="+92 300 1234567" required>
+          </label>
+          <label>
             Destination
             <select name="destination" required>
               <option value="" selected disabled>Choose a destination</option>
@@ -128,7 +135,21 @@
               <option value="15+">15+ days</option>
             </select>
           </label>
+          <label>
+            Payment method
+            <select name="payment-method" required>
+              <option value="" selected disabled>Choose a payment method</option>
+              <option value="cash">Cash</option>
+              <option value="bank-transfer">Bank transfer</option>
+              <option value="card">Card</option>
+              <option value="mobile-wallet">Mobile wallet</option>
+            </select>
+          </label>
         </div>
+        <label class="booking-terms">
+          <input type="checkbox" name="deposit-terms" required>
+          <span>A deposit must be paid by the due date provided. The remaining balance is due once your program is confirmed. If you cancel after confirmation, your deposit is non-refundable. Payment is not processed on this page.</span>
+        </label>
         <button class="btn btn-lg btn-dark booking-submit" type="submit">Request Booking</button>
         <p class="booking-success" id="booking-success" role="status" aria-live="polite"></p>
       </form>
@@ -328,12 +349,14 @@
       var form = document.getElementById("booking-form");
       var success = document.getElementById("booking-success");
       var dateInput = form.elements["start-date"];
+      var paymentMethod = form.elements["payment-method"];
 
       dateInput.min = new Date().toISOString().split("T")[0];
 
       form.addEventListener("submit", function (event) {
         event.preventDefault();
-        success.textContent = "Thank you! Your trip request has been received.";
+        success.textContent = "Thank you! Your request is ready. We’ll follow up about your selected payment method: "
+          + paymentMethod.options[paymentMethod.selectedIndex].text + ".";
         form.reset();
         dateInput.min = new Date().toISOString().split("T")[0];
       });
