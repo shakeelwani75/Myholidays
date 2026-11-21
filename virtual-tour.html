@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Trips | Make Your Holidays</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/styles.css">
+  <link rel="stylesheet" href="CSS/virtual-tour.css">
+</head>
+
+<body class="virtual-tour-page">
+  <header class="colored-section virtual-tour-header">
+    <nav class="virtual-tour-nav" aria-label="Main navigation">
+      <a class="navbar-brand" href="index.html">Make Your Holidays</a>
+      <a href="index.html">Back to home</a>
+    </nav>
+  </header>
+
+  <main class="virtual-tour-main">
+    <section class="virtual-tour-intro">
+      <p class="virtual-tour-eyebrow">Explore from anywhere</p>
+      <h1 class="section-heading">Virtual Trips</h1>
+      <p>Choose a destination to preview its sample tour. Replace the sample stops and media with your own content.</p>
+    </section>
+
+    <div class="virtual-tour-picker">
+      <label for="virtual-tour-destination">Choose a destination</label>
+      <select id="virtual-tour-destination">
+        <option value="skardu">Skardu</option>
+        <option value="gilgit">Gilgit</option>
+        <option value="hunza">Hunza</option>
+        <option value="swat">Swat</option>
+      </select>
+    </div>
+
+    <article class="virtual-tour-card" data-tour="skardu">
+      <h2>Skardu</h2>
+      <p class="virtual-tour-description">Sample gallery using the Skardu photos already in the site. Replace the photos, captions, and stops whenever you are ready.</p>
+      <div class="virtual-tour-gallery">
+        <figure>
+          <img src="images/skardu3.jpg" alt="Sample landscape photo for a Skardu virtual trip">
+          <figcaption>Sample Skardu view</figcaption>
+        </figure>
+        <figure>
+          <img src="images/skardu6.jpg" alt="Sample mountain scenery for a Skardu virtual trip">
+          <figcaption>Sample mountain scenery</figcaption>
+        </figure>
+        <figure>
+          <img src="images/skardu8.jpg" alt="Sample destination scenery for a Skardu virtual trip">
+          <figcaption>Sample destination scenery</figcaption>
+        </figure>
+      </div>
+      <h3>Sample route</h3>
+      <ol class="virtual-tour-stops">
+        <li><strong>Stop 1:</strong> Add your starting point and a short description.</li>
+        <li><strong>Stop 2:</strong> Add a landmark, lake, or viewpoint.</li>
+        <li><strong>Stop 3:</strong> Add the final stop and travel notes.</li>
+      </ol>
+      <a class="btn btn-lg btn-dark virtual-tour-book" href="index.html?destination=skardu&amp;package=virtual#booking">Request this virtual trip</a>
+    </article>
+
+    <article class="virtual-tour-card" data-tour="gilgit" hidden>
+      <h2>Gilgit</h2>
+      <p class="virtual-tour-description">Sample tour page. Replace the route, descriptions, and photos below with your own Gilgit content.</p>
+      <div class="virtual-tour-gallery">
+        <figure>
+          <img src="images/gilgit-autumn.jpg" alt="Gilgit city and surrounding mountains in autumn" loading="lazy" decoding="async">
+          <figcaption>
+            <a href="https://commons.wikimedia.org/wiki/File:Gilgit_City_In_Autumn.jpg" target="_blank" rel="noopener noreferrer">Gilgit City in Autumn</a>
+            <span class="virtual-tour-credit">Photo by Assad Muhammad Khan · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a></span>
+          </figcaption>
+        </figure>
+        <figure>
+          <img src="images/gilgit-northern-pakistan.jpg" alt="View of Gilgit city in northern Pakistan" loading="lazy" decoding="async">
+          <figcaption>
+            <a href="https://commons.wikimedia.org/wiki/File:Gilgit_Northern_Pakistan.jpg" target="_blank" rel="noopener noreferrer">Gilgit, Northern Pakistan</a>
+            <span class="virtual-tour-credit">Photo by Ndwarraich · <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a></span>
+          </figcaption>
+        </figure>
+        <figure>
+          <img src="images/gilgit-river-city.jpg" alt="Gilgit River and Gilgit city viewed from Konodas bridge" loading="lazy" decoding="async">
+          <figcaption>
+            <a href="https://commons.wikimedia.org/wiki/File:Gilgit_River_and_Gilgit_City.jpg" target="_blank" rel="noopener noreferrer">Gilgit River and City</a>
+            <span class="virtual-tour-credit">Photo by Asad · <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a></span>
+          </figcaption>
+        </figure>
+      </div>
+      <h3>Sample route</h3>
+      <ol class="virtual-tour-stops">
+        <li><strong>Stop 1:</strong> Add your starting point and a short description.</li>
+        <li><strong>Stop 2:</strong> Add a landmark, market, or viewpoint.</li>
+        <li><strong>Stop 3:</strong> Add the final stop and travel notes.</li>
+      </ol>
+      <a class="btn btn-lg btn-dark virtual-tour-book" href="index.html?destination=gilgit&amp;package=virtual#booking">Request this virtual trip</a>
+    </article>
+
+    <article class="virtual-tour-card" data-tour="hunza" hidden>
+      <h2>Hunza</h2>
+      <p class="virtual-tour-description">Sample tour page. Replace the route, descriptions, and photos below with your own Hunza content.</p>
+      <div class="virtual-tour-gallery">
+        <figure>
+          <img src="images/hunza-eagles-nest.jpg" alt="Hunza Valley viewed from Eagle's Nest" loading="lazy" decoding="async">
+          <figcaption>
+            <a href="https://commons.wikimedia.org/wiki/File:Hunza_Valley,_view_from_Eagle%27s_Nest.jpg" target="_blank" rel="noopener noreferrer">Hunza Valley from Eagle's Nest</a>
+            <span class="virtual-tour-credit">Photo by Alllexxxis · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a></span>
+          </figcaption>
+        </figure>
+        <figure>
+          <img src="images/hunza-valley-02.jpg" alt="Mountain landscape in Hunza Valley" loading="lazy" decoding="async">
+          <figcaption>
+            <a href="https://commons.wikimedia.org/wiki/File:Hunza_valley_Pakistan_02.jpg" target="_blank" rel="noopener noreferrer">Hunza Valley, Pakistan</a>
+            <span class="virtual-tour-credit">Photo by Saleha22 · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a></span>
+          </figcaption>
+        </figure>
+        <figure>
+          <img src="images/hunza-eagles-view.jpg" alt="Hunza Valley and mountains viewed from Eagle's Nest" loading="lazy" decoding="async">
+          <figcaption>
+            <a href="https://commons.wikimedia.org/wiki/File:Hunza_valley_Pakistan_06.jpg" target="_blank" rel="noopener noreferrer">Hunza Valley view from Eagle's Nest</a>
+            <span class="virtual-tour-credit">Photo by Saleha22 · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a></span>
+          </figcaption>
+        </figure>
+      </div>
+      <h3>Sample route</h3>
+      <ol class="virtual-tour-stops">
+        <li><strong>Stop 1:</strong> Add your starting point and a short description.</li>
+        <li><strong>Stop 2:</strong> Add a landmark, lake, or viewpoint.</li>
+        <li><strong>Stop 3:</strong> Add the final stop and travel notes.</li>
+      </ol>
+      <a class="btn btn-lg btn-dark virtual-tour-book" href="index.html?destination=hunza&amp;package=virtual#booking">Request this virtual trip</a>
+    </article>
+
+    <article class="virtual-tour-card" data-tour="swat" hidden>
+      <h2>Swat</h2>
+      <p class="virtual-tour-description">Sample tour page. Replace the route, descriptions, and photos below with your own Swat content.</p>
+      <div class="virtual-tour-gallery">
+        <figure>
+          <img src="images/swat-kalam.jpg" alt="River, mountains, and valley near Kalam in Swat" loading="lazy" decoding="async">
+          <figcaption>
+            <a href="https://commons.wikimedia.org/wiki/File:Kalam,_Swat,_KPK,_Pakistan_1.jpg" target="_blank" rel="noopener noreferrer">Kalam, Swat</a>
+            <span class="virtual-tour-credit">Photo by Ahmed Akhawala · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a></span>
+          </figcaption>
+        </figure>
+        <figure>
+          <img src="images/swat-daral-ghai.jpg" alt="Shepherd and herd crossing Daral Ghai pass in Swat Valley" loading="lazy" decoding="async">
+          <figcaption>
+            <a href="https://commons.wikimedia.org/wiki/File:A_shepherd_with_his_herd_crossing_DARALGAHAI_pass,_Swat_valley.jpg" target="_blank" rel="noopener noreferrer">Daral Ghai Pass, Swat Valley</a>
+            <span class="virtual-tour-credit">Photo by Tariq Siddiq Kohistani · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a></span>
+          </figcaption>
+        </figure>
+        <figure>
+          <img src="images/swat-balo-kale-stupa.jpg" alt="Balo Kale Stupa in Swat Valley" loading="lazy" decoding="async">
+          <figcaption>
+            <a href="https://commons.wikimedia.org/wiki/File:Balo_Kale_Stupa_Swat_Valley_Pakistan.jpg" target="_blank" rel="noopener noreferrer">Balo Kale Stupa, Swat Valley</a>
+            <span class="virtual-tour-credit">Photo by SpeakingArch · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a></span>
+          </figcaption>
+        </figure>
+      </div>
+      <h3>Sample route</h3>
+      <ol class="virtual-tour-stops">
+        <li><strong>Stop 1:</strong> Add your starting point and a short description.</li>
+        <li><strong>Stop 2:</strong> Add a landmark, river, or viewpoint.</li>
+        <li><strong>Stop 3:</strong> Add the final stop and travel notes.</li>
+      </ol>
+      <a class="btn btn-lg btn-dark virtual-tour-book" href="index.html?destination=swat&amp;package=virtual#booking">Request this virtual trip</a>
+    </article>
+  </main>
+
+  <script>
+    (function () {
+      var select = document.getElementById("virtual-tour-destination");
+      var tours = document.querySelectorAll("[data-tour]");
+      var requestedDestination = new URLSearchParams(window.location.search).get("destination");
+
+      if (Array.from(select.options).some(function (option) {
+        return option.value === requestedDestination;
+      })) {
+        select.value = requestedDestination;
+      }
+
+      function showSelectedTour() {
+        tours.forEach(function (tour) {
+          tour.hidden = tour.dataset.tour !== select.value;
+        });
+      }
+
+      select.addEventListener("change", showSelectedTour);
+      showSelectedTour();
+    }());
+  </script>
+</body>
+
+</html>
