@@ -103,6 +103,19 @@
             <input type="tel" name="phone" autocomplete="tel" placeholder="+92 300 1234567" required>
           </label>
           <label>
+            Identification document
+            <select name="document-type" required>
+              <option value="" selected disabled>Choose a document type</option>
+              <option value="national-id">National ID card</option>
+              <option value="passport">Passport</option>
+              <option value="other">Other</option>
+            </select>
+          </label>
+          <label>
+            Document number
+            <input type="text" name="document-number" autocomplete="off" placeholder="Enter your document number" required>
+          </label>
+          <label>
             Destination
             <select name="destination" required>
               <option value="" selected disabled>Choose a destination</option>
@@ -152,12 +165,14 @@
               <option value="bank-transfer">Bank transfer</option>
               <option value="card">Card</option>
               <option value="mobile-wallet">Mobile wallet</option>
+              <option value="taptap-send">TapTap Send</option>
+              <option value="easypaisa">Easypaisa</option>
             </select>
           </label>
         </div>
         <label class="booking-terms">
-          <input type="checkbox" name="deposit-terms" required>
-          <span>For paid trips, a deposit must be paid by the due date provided. The remaining balance is due once your program is confirmed. If you cancel after confirmation, your deposit is non-refundable. Payment is not processed on this page.</span>
+          <input type="checkbox" name="terms-accepted" required>
+          <span>I have read and agree to the <a href="terms-and-conditions.html" target="_blank" rel="noopener noreferrer">Terms and Conditions</a>. For paid trips, a deposit must be paid by the due date provided. The remaining balance is due once your program is confirmed. If you cancel after confirmation, your deposit is non-refundable. Payment is not processed on this page.</span>
         </label>
         <button class="btn btn-lg btn-dark booking-submit" type="submit">Request Booking</button>
         <p class="booking-success" id="booking-success" role="status" aria-live="polite"></p>
@@ -377,8 +392,6 @@
       var bookingContent = document.getElementById("booking-content");
       var bookingToggle = document.getElementById("booking-toggle");
       var paymentMethodField = paymentMethod.closest("label");
-      var termsField = form.querySelector(".booking-terms");
-      var termsCheckbox = form.elements["deposit-terms"];
       var destinationSelect = form.elements["destination"];
       var packageDurations = {
         "one-week": "4-7",
@@ -402,9 +415,6 @@
         paymentMethodField.hidden = isVirtualTrip;
         paymentMethod.disabled = isVirtualTrip;
         paymentMethod.required = !isVirtualTrip;
-        termsField.hidden = isVirtualTrip;
-        termsCheckbox.disabled = isVirtualTrip;
-        termsCheckbox.required = !isVirtualTrip;
       }
 
       function setBookingOpen(isOpen) {
@@ -452,7 +462,8 @@
       form.addEventListener("submit", function (event) {
         event.preventDefault();
         var selectedPackage = packageSelect.options[packageSelect.selectedIndex].text;
-        var confirmation = "Thank you! Your request for " + selectedPackage + " is ready.";
+        var confirmation = "Thank you! Your request for " + selectedPackage
+          + " is ready. Terms and Conditions acknowledged.";
         if (paymentMethod.value) {
           confirmation += " We’ll follow up about your selected payment method: "
             + paymentMethod.options[paymentMethod.selectedIndex].text + ".";

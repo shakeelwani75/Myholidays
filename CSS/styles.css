@@ -432,6 +432,56 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
+.terms-page {
+  min-height: 100vh;
+  padding: 0;
+  text-align: left;
+}
+
+.terms-header {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.terms-header .navbar-brand {
+  font-size: 1.6rem;
+  text-decoration: none;
+}
+
+.terms-content {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 5rem;
+}
+
+.terms-content h1 {
+  margin: 1.5rem 0 0.75rem;
+}
+
+.terms-content h2 {
+  margin-top: 2rem;
+  color: var(--primary-dark);
+  font-size: 1.25rem;
+}
+
+.terms-content p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.terms-back-link,
+.terms-content a {
+  color: var(--primary-dark);
+}
+
+.terms-note {
+  margin-top: 2rem;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid #38bdf8;
+  border-radius: 0.5rem;
+  background: var(--surface);
+}
+
 /* CTA */
 .cta-heading {
   font-family: "Montserrat", sans-serif;
@@ -511,9 +561,10 @@ h1, h2, h3, h4, h5, h6 {
     width: 18%;
   }
 
-  @media (max-width: 700px) {
-    #pricing .pricing-grid {
-      grid-template-columns: 1fr;
-    }
+}
+
+@media (max-width: 700px) {
+  #pricing .pricing-grid {
+    grid-template-columns: 1fr;
   }
 }
